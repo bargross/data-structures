@@ -17,6 +17,9 @@ public class Main {
     public void run (String[] args) throws Exception
     {
         Dictionary<String, String> b = new Dictionary<String, String>();
+        Dictionary<String, String> c = b;
+
+        Dictionary<String, String> a = new Dictionary<String, String>();
 
         b.add("L", "M");
         b.add("J", "A");
@@ -37,7 +40,12 @@ public class Main {
         System.out.println(b.containsKey("R"));
         System.out.println(b.containsKey("Z"));
 
-        System.out.println(b.keysToArray());
-        System.out.println(b.valuesToArray());
+        System.out.println();
+
+        System.out.println(b.equals(c));
+        System.out.println(b.equals(a));
+        System.out.println(b.equals(null));
+        System.out.println(b.equals(new String("")));
+
     }
 }

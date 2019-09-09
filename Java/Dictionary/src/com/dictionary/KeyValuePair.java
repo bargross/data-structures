@@ -28,6 +28,10 @@ public class KeyValuePair<K, V> implements Pair<K, V> {
         return this.value;
     }
 
+    public void setNext(KeyValuePair<K, V> next) {
+        this.next = next;
+    }
+
     public KeyValuePair<K, V> getNext() {
         return this.next;
     }
@@ -35,10 +39,6 @@ public class KeyValuePair<K, V> implements Pair<K, V> {
     public void setValue(V value) {
         Objects.requireNonNull(value);
         this.value = value;
-    }
-
-    public void setNext(KeyValuePair<K, V> next) {
-        this.next = next;
     }
 
     public boolean hasKey(K key, int hash) {
@@ -52,7 +52,6 @@ public class KeyValuePair<K, V> implements Pair<K, V> {
         return next == null;
     }
 
-    // @override
     public boolean equals(Object o) {
         if(o == null) {
             return false;

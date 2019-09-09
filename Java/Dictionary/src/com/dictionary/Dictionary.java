@@ -134,7 +134,7 @@ public class Dictionary<K, V> {
     }
 
     /*
-        returns a Collection of keys
+        returns the full set of keys currently in the map
      */
     public List<K> getKeys() {
 
@@ -155,7 +155,7 @@ public class Dictionary<K, V> {
     }
 
     /*
-        returns an array of keys
+        returns an array of keys for a single bucket (linked nodes)
      */
     public K[] keysToArray() {
         Collection<K> keys = getKeys();
