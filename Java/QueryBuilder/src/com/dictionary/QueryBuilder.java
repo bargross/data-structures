@@ -4,29 +4,39 @@ package com.dictionary;
 import com.dictionary.interfaces.Query;
 
 public class QueryBuilder implements Query {
-    private StringBuffer QueryBuilder;
+    //
+    private StringBuffer queryBuilder;
+    private String lastValue;
+    private String lastAction;
+
+    // flags
     private boolean columnsAdded = false;
     private boolean mainTableAdded = false;
     private boolean whereExpressionAdded = false;
-    private boolean andAdded = false;
+    private boolean andExpressionAdded = false;
     private boolean joinAdded = false;
+    private boolean trackLastValue = false;
 
 
-    public QueryBuilder() { QueryBuilder = new StringBuffer("SELECT \r\n"); }
+    public QueryBuilder() { queryBuilder = new StringBuffer("SELECT \r\n"); }
+    public QueryBuilder(boolean trackLastValue) {
+        queryBuilder = new StringBuffer("SELECT \r\n");
+        this.trackLastValue = trackLastValue;
+    }
 
     public Query select(String ...columns) {
         if(columns.length > 0) {
             for (int index = 0; index < columns.length; ++index) {
                 if (index < columns.length - 1) {
-                    QueryBuilder.append("   ");
-                    QueryBuilder.append(columns[index]);
-                    QueryBuilder.append(", \r\n");
+                    queryBuilder.append("   ");
+                    queryBuilder.append(columns[index]);
+                    queryBuilder.append(", \r\n");
                     continue;
                 }
 
-                QueryBuilder.append("   ");
-                QueryBuilder.append(columns[index]);
-                QueryBuilder.append(" \r\n");
+                queryBuilder.append("   ");
+                queryBuilder.append(columns[index]);
+                queryBuilder.append(" \r\n");
             }
 
             columnsAdded = true;
@@ -36,9 +46,14 @@ public class QueryBuilder implements Query {
 
     public Query from(String tableName) {
         if(!tableName.isEmpty() && columnsAdded) {
-            QueryBuilder.append("FROM " );
-            QueryBuilder.append(tableName);
-            QueryBuilder.append("\r\n");
+            queryBuilder.append("FROM " );
+            queryBuilder.append(tableName);
+            queryBuilder.append("\r\n");
+
+            if(trackLastValue) {
+                lastValue = tableName;
+                lastAction = "FROM ";
+            }
             mainTableAdded = true;
         }
         return this;
@@ -46,7 +61,14 @@ public class QueryBuilder implements Query {
 
     public Query where(String expression) {
         if(!expression.isEmpty() && mainTableAdded) {
-            QueryBuilder.append("WHERE " + expression + "\r\n");
+            queryBuilder.append("WHERE ");
+            queryBuilder.append(expression);
+            queryBuilder.append("\r\n");
+
+            if(trackLastValue) {
+                lastValue = expression;
+                lastAction = "WHERE ";
+            }
             whereExpressionAdded = true;
         }
         return this;
@@ -54,15 +76,29 @@ public class QueryBuilder implements Query {
 
     public Query and(String expression) {
         if (!expression.isEmpty() && whereExpressionAdded) {
-            QueryBuilder.append("AND " + expression + "\r\n");
-            andAdded = true;
+            queryBuilder.append("AND ");
+            queryBuilder.append(expression);
+            queryBuilder.append("\r\n");
+
+            if(trackLastValue) {
+                lastValue = expression;
+                lastAction = "AND ";
+            }
+            andExpressionAdded = true;
         }
         return this;
     }
 
     public Query join(String tableName) {
         if (!tableName.isEmpty() && mainTableAdded) {
-            QueryBuilder.append("JOIN " + tableName + "\r\n");
+            queryBuilder.append("JOIN ");
+            queryBuilder.append(tableName);
+            queryBuilder.append("\r\n");
+
+            if(trackLastValue) {
+                lastValue = tableName;
+                lastAction = "JOIN ";
+            }
             joinAdded = true;
         }
         return this;
@@ -70,20 +106,69 @@ public class QueryBuilder implements Query {
 
     public Query on(String expression) {
         if (!expression.isEmpty() && joinAdded) {
-            QueryBuilder.append("ON " + expression + "\r\n");
-            // onAdded = true;
+            queryBuilder.append("ON ");
+            queryBuilder.append(expression);
+            queryBuilder.append("\r\n");
+
+            if (trackLastValue) {
+                lastValue = expression;
+                lastAction = "ON ";
+            }
         }
         return this;
     }
 
     public Query like(String value) {
         if(!value.isEmpty() && whereExpressionAdded) {
-            QueryBuilder.append("LIKE '"+value+"' \r\n");
+            queryBuilder.append("LIKE ");
+            queryBuilder.append("'" + value + "'");
+            queryBuilder.append(" \r\n");
+
+            if (trackLastValue) {
+                lastValue = value;
+                lastAction = "LIKE ";
+            }
         }
         return this;
     }
 
+    public void reset() {
+        queryBuilder = new StringBuffer("SELECT \r\n");
+    }
+
+    public void removeLast() {
+        replaceValue((lastAction+lastValue), "");
+    }
+
+    public void replaceLast(String value) {
+        if(!value.isEmpty() && lastValue != null && !lastValue.isEmpty()) {
+            replaceValue(lastValue, value);
+        }
+    }
+
+    public void replace(String current, String value) {
+        if(queryBuilder.indexOf(value) == -1) {
+            throw new IllegalArgumentException("Cannot replace value ("+current+"), it does not exist");
+        }
+
+        if(!current.isEmpty() || current == null) {
+            throw new IllegalArgumentException("Current value is empty");
+        }
+
+        if(value == null) {
+            throw new IllegalArgumentException("Value is null");
+        }
+
+        replaceValue(current, value);
+    }
+
     public String getQuery() {
-        return QueryBuilder.toString();
+        return queryBuilder.toString();
+    }
+
+    private void replaceValue(String current, String value) {
+            int start = queryBuilder.indexOf(current);
+            int end = start + current.length();
+            queryBuilder.replace(start, end, value);
     }
 }

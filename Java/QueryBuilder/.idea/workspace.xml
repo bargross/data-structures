@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19f08b10-31b5-4a43-8f27-4e60ec1ff457" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/dictionary/QueryBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/dictionary/interfaces/Query.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/Tuple/QuaTruple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/Tuple/SimpleTuple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/Tuple/Triple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/Tuple/Tuple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/restapi/ITTemplateRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../packages/core-ui-server/src/main/java/com/ebam/restapi/DocumentRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/main/java/com/ebam/restapi/DocumentRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/TestServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/TestServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/restapi/ITDocumentRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/restapi/ITDocumentRequestHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="19f08b10-31b5-4a43-8f27-4e60ec1ff457" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +17,13 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1QeHsYd5tXrqMeRE1T4ycV7j7WQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -79,7 +71,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
