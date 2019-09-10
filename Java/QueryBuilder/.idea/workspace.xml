@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="19f08b10-31b5-4a43-8f27-4e60ec1ff457" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/dictionary/QueryBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/dictionary/interfaces/Query.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/Tuple/QuaTruple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/Tuple/SimpleTuple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/Tuple/Triple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/Tuple/Tuple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/restapi/ITTemplateRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../packages/core-ui-server/src/main/java/com/ebam/restapi/DocumentRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/main/java/com/ebam/restapi/DocumentRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/TestServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/coreuiserver/services/TestServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/restapi/ITDocumentRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../packages/core-ui-server/src/test/java/com/ebam/restapi/ITDocumentRequestHandler.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1QeHsYd5tXrqMeRE1T4ycV7j7WQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.dictionary.Main" />
+      <module name="QueryBuilder" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="19f08b10-31b5-4a43-8f27-4e60ec1ff457" name="Default Changelist" comment="" />
+      <created>1568124349012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568124349012</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
