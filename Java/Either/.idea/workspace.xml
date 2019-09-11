@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="161419e3-5020-4ca4-a580-677e4aa167eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ArrayList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ArrayList/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ArrayList/src/com/company/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ArrayList/src/com/company/ArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArrayList/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ArrayList/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArrayList/src/com/company/interfaces/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ArrayList/src/com/company/interfaces/List.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Stream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/interfaces/Stream.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Either/com/company/Either.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Either/com/company/Either.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Either/com/company/ImmutableContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Either/com/company/ImmutableContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Either/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Either/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Either/com/company/interfaces/Stream.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Either.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Either.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QueryBuilder/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../QueryBuilder/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QueryBuilder/out/production/QueryBuilder/com/dictionary/QueryBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../QueryBuilder/out/production/QueryBuilder/com/dictionary/QueryBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QueryBuilder/src/com/dictionary/QueryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../QueryBuilder/src/com/dictionary/QueryBuilder.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

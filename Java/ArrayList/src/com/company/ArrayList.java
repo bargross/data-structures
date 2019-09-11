@@ -53,27 +53,8 @@ public class ArrayList<T extends Object> implements List<T> {
         collection = Arrays.asList(collectionArray);
     }
 
-    public static void bucketSort(List<Object> collection) {
+    public void bucketSort(List<T> collection) {
         bucketSort(collection);
-    }
-
-    public int binarySearch(T[] collection, Object value, int min, int max) {
-        int mid = Math.abs((min + max) / 2);
-
-        if(!isSorted(collection)) {
-            if(collection.length > 50000) {
-                bucketSort(collection);
-            } else {
-                quickSort(collection);
-            }
-        }
-
-        if(min > max) return -1;
-        else if(collection[mid].hashCode() == value.hashCode()) return mid;
-        else if(collection[mid].hashCode() > value.hashCode()) return binarySearch(collection, value, min, mid - 1);
-        else if(collection[mid].hashCode() < value.hashCode()) return binarySearch(collection, value, mid + 1, max);
-
-        return -1;
     }
 
     public boolean contains(T value) {
@@ -84,7 +65,30 @@ public class ArrayList<T extends Object> implements List<T> {
         return binarySearch(container, value, 0, container.length);
     }
 
+    public void sort() {
+        if(container.length > 50000) {
+            bucketSort(container);
+        } else {
+            quickSort(container);
+        }
+    }
+
     // ====================================================
+
+    private int binarySearch(T[] collection, Object value, int min, int max) {
+        int mid = Math.abs((min + max) / 2);
+
+        if(!isSorted(collection)) {
+            sort();
+        }
+
+        if(min > max) return -1;
+        else if(collection[mid].hashCode() == value.hashCode()) return mid;
+        else if(collection[mid].hashCode() > value.hashCode()) return binarySearch(collection, value, min, mid - 1);
+        else if(collection[mid].hashCode() < value.hashCode()) return binarySearch(collection, value, mid + 1, max);
+
+        return -1;
+    }
 
     private static void quickSort(Object[] collection) {
         Arrays.sort(collection);

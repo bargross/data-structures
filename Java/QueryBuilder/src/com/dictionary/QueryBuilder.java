@@ -1,13 +1,19 @@
 package com.dictionary;
 
 
+import com.dictionary.Util.KeywordSelector;
 import com.dictionary.interfaces.Query;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class QueryBuilder implements Query {
     //
     private StringBuffer queryBuilder;
     private String lastValue;
-    private String lastAction;
+
+    //
+    private KeywordSelector selector;
 
     // flags
     private boolean columnsAdded = false;
@@ -18,15 +24,23 @@ public class QueryBuilder implements Query {
     private boolean trackLastValue = false;
 
 
-    public QueryBuilder() { queryBuilder = new StringBuffer("SELECT \r\n"); }
+    public QueryBuilder() {
+        selector = KeywordSelector.SELECT;
+        queryBuilder = new StringBuffer(selector.getValue());
+    }
+
     public QueryBuilder(boolean trackLastValue) {
-        queryBuilder = new StringBuffer("SELECT \r\n");
+        selector = KeywordSelector.SELECT;
+        queryBuilder = new StringBuffer(selector.getValue());
         this.trackLastValue = trackLastValue;
     }
 
     public Query select(String ...columns) {
         if(columns.length > 0) {
             for (int index = 0; index < columns.length; ++index) {
+                if(columns[index].isEmpty()) {
+                    continue;
+                }
                 if (index < columns.length - 1) {
                     queryBuilder.append("   ");
                     queryBuilder.append(columns[index]);
@@ -45,91 +59,85 @@ public class QueryBuilder implements Query {
     }
 
     public Query from(String tableName) {
-        if(!tableName.isEmpty() && columnsAdded) {
-            queryBuilder.append("FROM " );
+        return process(tableName, columnsAdded, validated -> {
+            selector = KeywordSelector.FROM;
+            queryBuilder.append(selector.getValue());
             queryBuilder.append(tableName);
             queryBuilder.append("\r\n");
 
             if(trackLastValue) {
                 lastValue = tableName;
-                lastAction = "FROM ";
             }
             mainTableAdded = true;
-        }
-        return this;
+        });
     }
 
     public Query where(String expression) {
-        if(!expression.isEmpty() && mainTableAdded) {
-            queryBuilder.append("WHERE ");
+        return process(expression, mainTableAdded, validated -> {
+            selector = KeywordSelector.WHERE;
+            queryBuilder.append(selector.getValue());
             queryBuilder.append(expression);
             queryBuilder.append("\r\n");
 
             if(trackLastValue) {
                 lastValue = expression;
-                lastAction = "WHERE ";
             }
             whereExpressionAdded = true;
-        }
-        return this;
+        });
     }
 
     public Query and(String expression) {
-        if (!expression.isEmpty() && whereExpressionAdded) {
-            queryBuilder.append("AND ");
+        return process(expression, whereExpressionAdded, validated -> {
+            selector = KeywordSelector.AND;
+            queryBuilder.append(selector.getValue());
             queryBuilder.append(expression);
             queryBuilder.append("\r\n");
 
             if(trackLastValue) {
                 lastValue = expression;
-                lastAction = "AND ";
             }
             andExpressionAdded = true;
-        }
-        return this;
+        });
     }
 
     public Query join(String tableName) {
-        if (!tableName.isEmpty() && mainTableAdded) {
-            queryBuilder.append("JOIN ");
+        return process(tableName, mainTableAdded, validated -> {
+            selector = KeywordSelector.JOIN;
+            queryBuilder.append(selector.getValue());
             queryBuilder.append(tableName);
             queryBuilder.append("\r\n");
 
             if(trackLastValue) {
                 lastValue = tableName;
-                lastAction = "JOIN ";
             }
             joinAdded = true;
-        }
-        return this;
+        });
     }
 
     public Query on(String expression) {
-        if (!expression.isEmpty() && joinAdded) {
-            queryBuilder.append("ON ");
+        return process(expression, joinAdded, validated -> {
+            selector = KeywordSelector.ON;
+            queryBuilder.append(selector.getValue());
             queryBuilder.append(expression);
             queryBuilder.append("\r\n");
 
             if (trackLastValue) {
                 lastValue = expression;
-                lastAction = "ON ";
             }
-        }
-        return this;
+        });
     }
 
     public Query like(String value) {
-        if(!value.isEmpty() && whereExpressionAdded) {
-            queryBuilder.append("LIKE ");
+        return process(value, whereExpressionAdded, validated -> {
+            selector = KeywordSelector.LIKE;
+            queryBuilder.append(selector.getValue());
             queryBuilder.append("'" + value + "'");
             queryBuilder.append(" \r\n");
 
             if (trackLastValue) {
                 lastValue = value;
-                lastAction = "LIKE ";
             }
-        }
-        return this;
+        });
     }
 
     public void reset() {
@@ -137,7 +145,7 @@ public class QueryBuilder implements Query {
     }
 
     public void removeLast() {
-        replaceValue((lastAction+lastValue), "");
+        replaceValue((selector.getValue()+lastValue), "");
     }
 
     public void replaceLast(String value) {
@@ -170,5 +178,12 @@ public class QueryBuilder implements Query {
             int start = queryBuilder.indexOf(current);
             int end = start + current.length();
             queryBuilder.replace(start, end, value);
+    }
+
+    private Query process(String stringValue, boolean flag, Consumer<String> func) {
+        if(!stringValue.isEmpty() && flag) {
+            func.accept(stringValue);
+        }
+        return this;
     }
 }

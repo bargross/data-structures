@@ -4,6 +4,17 @@
     <list default="true" id="45b083f0-979c-4094-a8ce-79a6d58bf5db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/interfaces/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/interfaces/List.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Either/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Either/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Either/out/production/Either/com/company/Either.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Either/out/production/Either/com/company/Either.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Either/out/production/Either/com/company/ImmutableContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Either/out/production/Either/com/company/ImmutableContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Either/out/production/Either/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Either/out/production/Either/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Either/out/production/Either/com/company/interfaces/Stream.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Either/src/com/company/Either.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Either/src/com/company/Either.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QueryBuilder/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../QueryBuilder/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QueryBuilder/out/production/QueryBuilder/com/dictionary/QueryBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../QueryBuilder/out/production/QueryBuilder/com/dictionary/QueryBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QueryBuilder/src/com/dictionary/QueryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../QueryBuilder/src/com/dictionary/QueryBuilder.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +62,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />

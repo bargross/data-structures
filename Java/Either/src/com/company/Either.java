@@ -5,21 +5,21 @@ import java.util.List;
 import java.util.function.Function;
 
 public class Either<L, R> {
-    private ImmutableContainer<L, R> container;
+    private ImmutableContainer<L, R> CONTAINER;
     private boolean isContainer;
 
     Either() { isContainer = false; }
 
     public void setLeft(L left) {
-        container = new ImmutableContainer<>();
-        container.setLeft(left);
-        container.setRight(null);
+        CONTAINER = new ImmutableContainer<>();
+        CONTAINER.setLeft(left);
+        CONTAINER.setRight(null);
     }
 
     public void setRight(R right) {
-        container = new ImmutableContainer<>();
-        container.setLeft(null);
-        container.setRight(right);
+        CONTAINER = new ImmutableContainer<>();
+        CONTAINER.setLeft(null);
+        CONTAINER.setRight(right);
     }
 
     public void setContainerFlag(boolean isContainer) {
@@ -27,11 +27,11 @@ public class Either<L, R> {
     }
 
     public <T> T getValue() {
-        if(container.isLeftNull() && !container.isRightNull()) {
-            return (T)((Object)container.getRight());
+        if(CONTAINER.isLeftNull() && !CONTAINER.isRightNull()) {
+            return (T)((Object)CONTAINER.getRight());
         }
-        if(!container.isLeftNull() && container.isRightNull()) {
-            return (T)((Object)container.getLeft());
+        if(!CONTAINER.isLeftNull() && CONTAINER.isRightNull()) {
+            return (T)((Object)CONTAINER.getLeft());
         }
 
         return null;
