@@ -6,11 +6,11 @@
 using namespace std;
 
  class cstring {
-        char* char_container = NULL;
-        size_t size = 0;
+        char* char_container = nullptr;
+        long size = 0;
         
         void add_dynamic_array_of_chars(const char* chars) {
-            if(chars != NULL) {
+            if(chars != nullptr) {
                 this->char_container = new char[sizeof(chars)];
                 this->char_container[0] = '\0';
                 for(int index= 0; index < sizeof(chars); ++index) {
@@ -25,10 +25,10 @@ using namespace std;
         }
             
         void concat(const char* chars) {
-            if(chars != NULL || chars != nullptr) {
+            if(chars != nullptr) {
                 this->size = this->size+sizeof(chars);
                 char* temp = new char[this->size];
-                size_t new_chars_size = sizeof(chars);
+                long new_chars_size = sizeof(chars);
                 
                 for(int index= 0; index < this->size; ++index) {
                     if(index < new_chars_size && chars[index] != '\0') {
