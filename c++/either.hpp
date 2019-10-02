@@ -13,18 +13,7 @@ class either
     const A* element1 = nullptr;
     const B* element2 = nullptr;
 
-    bool is_array = false;
-
-    void stop() {
-        while (1) { }
-    } // forces the compiler to stop from executing further
-    
-    void error(std::string str) {
-        str = "Runtime Error: [ " + str + " ]";
-        std::cout << str << std::endl;
-
-        stop();
-    }
+    // bool is_array = false;
 
   public: 
 
@@ -32,8 +21,15 @@ class either
         element1 = element;
         element2 = nullptr;
     }
-
     either(B element) {
+        element2 = element;
+        element1 = nullptr;
+    }
+    either(A& element) {
+        element1 = element;
+        element2 = nullptr;
+    }
+    either(B& element) {
         element2 = element;
         element1 = nullptr;
     }
@@ -42,8 +38,20 @@ class either
         delete element2;
     }
 
-    // operators
+    // void tag_element_as_array(bool is_array) {
+    //     this->flag_as_array = is_array;
+    // }
+    
 
+    static either<A, B> of(A element) {
+        return new either<A, B>(element);
+    }
+
+    static either<A, B> of(B element) {
+        return new either<A, B>(element);
+    }
+
+    // operators
     void operator=(A element) {
         element1 = element;
         element2 = nullptr;
@@ -54,47 +62,18 @@ class either
         element1 = nullptr;
     }
 
-    // methods
-
-    // template<class T> 
-    // T getValue() {
-
-    // }
-
-    // void stream() { // find fist class functions in c++
-    //     A temp = this->element1 == nullptr ? this->element2 : this->element1;
-
-    //     if(temp != nullptr) {
-    //         // do some operation that does not require the value to be returned
-    //     }
-    // }
-
-    // template<class T>
-    // auto stream() { // find fist class functions in c++
-    //     auto temp = this->element1 == nullptr ? this->element2 : this->element1;
-
-    //     if(temp != nullptr) {
-    //         // do some operation that does not require the value to be returned
-    //     }
-    // }
-
     // TODO: create error codes and error description
-    A getValue()
+    template<typename T> T getValue()
     {
-        if (element1 != nullptr)
-            return (*element1);
-        else {
-            return (A*)::operator new(0);
+        if (element1 != nullptr && element2 == nullptr) {
+            return (T)element1;
         }
-    }
 
-
-    B getValue() {
-        if (element2 != nullptr)
-            return (*element2);
-        else {
-            return (B*)::operator new(0);
+        if (element1 == nullptr && element2 != nullptr) {
+            return (T)element2;
         }
+
+        return (T*)::operator new(1);
     }
 };
 

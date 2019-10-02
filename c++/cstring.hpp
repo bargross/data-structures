@@ -9,7 +9,7 @@ using namespace std;
         char* char_container = nullptr;
         long size = 0;
         
-        void add_dynamic_array_of_chars(const char* chars) {
+        void add_array_of_chars(const char* chars) {
             if(chars != nullptr) {
                 this->char_container = new char[sizeof(chars)];
                 this->char_container[0] = '\0';
@@ -47,7 +47,7 @@ using namespace std;
             this->char_container = new char[0];
         }
         cstring(const char* chars) {
-            this->add_dynamic_array_of_chars(chars);
+            this->add_array_of_chars(chars);
         }
         cstring(const char& chars) {
             this->size = sizeof(chars);
@@ -61,7 +61,7 @@ using namespace std;
         // Operators
         
         void operator =(const char* chars) {
-            this->add_dynamic_array_of_chars(chars);
+            this->add_array_of_chars(chars);
         }
         
         void operator =(const char& chars) {
